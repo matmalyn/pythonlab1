@@ -1,0 +1,37 @@
+auto = "t"
+while auto == "t":
+ 
+  waga = float (input("Podaj swoj¹ wagê w kilogramach [np: 65.5]: "))
+  wzrost = float (input("Podaj swój wzrost w metrach [np: 1.78]: "))
+
+  bmi=round((waga/(wzrost**2)), 2)
+
+  if (bmi<18.5):
+    print("Twoje BMI wynosi: ", bmi)
+    print("Twoja Klasyfikacja zaburzeñ masy cia³a: Niedowaga")
+    print("Ryzyko chorób towarzysz¹cych oty³oœci: Niskie (ale zwiêkszone ryzyko innych problemów zdrowotnych)")
+
+  elif (bmi>=18.5 and bmi <=24.9):
+    print("Twoje BMI wynosi: ", bmi)
+    print("Twoja Klasyfikacja zaburzeñ masy cia³a: Norma")
+    print("Ryzyko chorób towarzysz¹cych oty³oœci: Œrednie")
+
+  elif (bmi>=25 and bmi <=29.9):
+    print("Twoje BMI wynosi: ", bmi)
+    print("Twoja Klasyfikacja zaburzeñ masy cia³a: Nadwaga (Okres przed oty³oœci¹)")
+    print("Ryzyko chorób towarzysz¹cych oty³oœci: Podwy¿szone")    
+
+  elif (bmi>=30 and bmi <=34.9):
+    print("Twoje BMI wynosi: ", bmi)
+    print("Twoja Klasyfikacja zaburzeñ masy cia³a: Nadwaga (Pierwszy stopien oty³oœci)")
+    print("Ryzyko chorób towarzysz¹cych oty³oœci: Umiarkowanie podwy¿szone")    
+
+  elif (bmi>=35 and bmi <=39.9):
+    print("Twoje BMI wynosi: ", bmi)
+    print("Twoja Klasyfikacja zaburzeñ masy cia³a: Nadwaga (Drugi stopien oty³oœci)")
+    print("Ryzyko chorób towarzysz¹cych oty³oœci: Wysokie")
+
+  elif (bmi>=40):
+    print("Twoje BMI wynosi: ", bmi)
+    print("Twoja Klasyfikacja zaburzeñ masy cia³a: Nadwaga (Trzeci stopien oty³oœci)")
+    print("Ryzyko chorób towarzysz¹cych oty³oœci: Bardzo wysokie")  

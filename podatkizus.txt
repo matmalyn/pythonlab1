@@ -1,0 +1,77 @@
+auto = "0"
+while auto == "0":
+  
+  a = int (input("Jeœli chcesz poznaæ podatki oraz sk³adki ZUS dla umowy o pracê wpisz 1, jeœli dla umowy zlecenia wpisz 2: "))
+
+  while (a==1 or a==2):
+
+    b = float (input("Podaj kwotê brutto: "))
+
+    if (a==1):
+
+      print ("wynagrodzenie brutto bêd¹ce podstaw¹ wymiaru sk³adek: ", b)
+      print ("sk³adki finansowane przez pracownika:")
+      emeryt = round(b * 0.0976, 2)
+      print ("emerytalna: ", emeryt)
+      rent = round(b * 0.015, 2)
+      print ("rentowa: ", rent)
+      chorob = round(b * 0.0245, 2)
+      print ("chorobowa: ", chorob)
+      sumasfpp = emeryt + rent + chorob
+      print ("suma sk³adek finansowanych przez pracownika: ", sumasfpp)
+      pwsz = b - sumasfpp
+      print ("podstawa wymiaru sk³adki zdrowotnej: ", pwsz)
+      szdz = round(0.09*pwsz, 2)
+      print ("sk³adka zdrowotna do zap³aty: ", szdz)
+      szdood = round(0.0775*pwsz, 2)
+      print ("sk³adka zdrowotna do odliczenia od podatku: ", szdood)
+      kup = 111.25
+      print ("koszty uzyskania przychodu: ", kup)
+      poznpit = round(b - kup - sumasfpp)
+      print ("podstawa obliczenia zaliczki na PIT: ", poznpit)
+      znpit = round((0.18*poznpit) - 46.33 - szdood)
+      print("zaliczka na PIT: ", znpit)
+      netto_uop = round (b - sumasfpp - szdz - znpit, 2)
+      print("Twoje wynagrodzenie NETTO na umowie o pracê wyniesie: ", netto_uop)
+      break
+
+    elif (a==2):
+      if (b<=200):
+        print ("podstawa wymiaru sk³adek na ubezpieczenia spo³eczne: ", b)
+        snus = round(0.1371*b, 2)
+        print ("sk³adki na ubezpieczenia spo³eczne finansowane przez zleceniobiorcê: ", snus)
+        pwsnuz = round(b - snus, 2)
+        print ("podstawa wymiaru sk³adki na ubezpieczenie zdrowotne: ", pwsnuz)
+        snuz = round(pwsnuz * 0.09, 2)
+        print ("sk³adka na ubezpieczenie zdrowotne: ", snuz)
+        popz = round(b)
+        print ("podstawa opodatkowania, po zaokr¹gleniu do pe³nych z³otych: ", popz)
+        zpd = round(popz * 0.18)
+        print ("zrycza³towany podatek dochodowy, po zaokr¹gleniu do pe³nych z³otych: ", zpd)
+        netto_uzlt200 = round (b - (snus + snuz + zpd), 2)
+        print("Twoje wynagrodzenie NETTO na umowie zlecenie wyniesie: ", netto_uzlt200)
+        break
+
+      elif (b>200):
+        print ("podstawa wymiaru sk³adek na ubezpieczenia spo³eczne: ", b)
+        snus1 = round(0.1371*b, 2)
+        print ("sk³adki na ubezpieczenia spo³eczne finansowane przez zleceniobiorcê: ", snus1)
+        pwsnuz1 = round(b - snus1, 2)
+        print ("podstawa wymiaru sk³adki na ubezpieczenie zdrowotne: ", pwsnuz1)
+        snuz1 = round(pwsnuz1 * 0.09, 2)
+        snuz2 = round(pwsnuz1 * 0.075, 2)
+        print ("sk³adka na ubezpieczenie zdrowotne 9%: ", snuz1)
+        kup1 = round((b - snus1) * 0.2, 2)
+        print ("koszty uzyskania przychodów: ", kup1)
+        popz1 = round(b - (kup1 + snus1))
+        print ("podstawa opodatkowania, po zaokr¹gleniu do pe³nych z³otych: ", popz1)
+        znp = round(popz1 * 0.18, 2)
+        print ("zaliczka na podatek: ", znp)
+        znpdp = round(znp - snuz2)
+        print ("zaliczka na podatek do przekazania do urzêdu skarbowego: ", znpdp)
+        netto_uzmt200 = round (b - (snus1 + snuz1 + znpdp), 2)
+        print("Twoje wynagrodzenie NETTO na umowie zlecenie wyniesie: ", netto_uzmt200)
+        break
+
+  else:
+    print("Wybierz opcjê 1 lub 2!")
